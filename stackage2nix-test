@@ -6,8 +6,10 @@ set -e
 usage () {
   cat << EOF
 Usage:
-  stack2nix-test inflectins-hs
-  stack2nix-test stack --dry-run
+  stackage2nix-test <project> [--dry-run]
+Examples:
+  stackage2nix-test inflectins-hs
+  stackage2nix-test stack --dry-run
 EOF
 }
 
@@ -28,14 +30,14 @@ nix-build-project () {
   ( set -x; nix-build ${projects[@]/#/ -A } $@ )
 }
 
-stack2nix-project () {
+stackage2nix-project () {
   ( set -x;
-    stack2nix \
+    stackage2nix \
       --lts-haskell ./lts-haskell \
       --all-cabal-hashes ./all-cabal-hashes \
       "$DIR/"
     )
 }
 
-stack2nix-project "$@"
+stackage2nix-project "$@"
 nix-build-project "$@"

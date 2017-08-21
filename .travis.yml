@@ -10,16 +10,16 @@ cache:
 jobs:
   include:
     - stage: warmup0
-      script: timeout 2400 nix-build -A stack2nix release.nix || test $? -eq 124 || false
+      script: timeout 2400 nix-build -A stackage2nix release.nix || test $? -eq 124 || false
     - stage: warmup1
-      script: timeout 2400 nix-build -A stack2nix release.nix || test $? -eq 124 || false
+      script: timeout 2400 nix-build -A stackage2nix release.nix || test $? -eq 124 || false
     - stage: bootstrap
-      script: nix-env -f release.nix -i stack2nix
+      script: nix-env -f release.nix -i stackage2nix
     - stage: test
-      script: ./stack2nix-test inflections-hs --dry-run
-    - script: ./stack2nix-test path --dry-run
-    - script: ./stack2nix-test stack --dry-run
-    - script: ./stack2nix-test stack2nix --dry-run
+      script: ./stackage2nix-test inflections-hs --dry-run
+    - script: ./stackage2nix-test path --dry-run
+    - script: ./stackage2nix-test stack --dry-run
+    - script: ./stackage2nix-test stack2nix --dry-run
 
 before_install:
 - mkdir -p ~/.nix
