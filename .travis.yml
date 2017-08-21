@@ -19,7 +19,7 @@ jobs:
       script: ./stackage2nix-test inflections-hs --dry-run
     - script: ./stackage2nix-test path --dry-run
     - script: ./stackage2nix-test stack --dry-run
-    - script: ./stackage2nix-test stack2nix --dry-run
+    - script: ./stackage2nix-test stackage2nix --dry-run
 
 before_install:
 - mkdir -p ~/.nix
