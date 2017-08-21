@@ -18,7 +18,7 @@
 	path = path
 	url = https://github.com/commercialhaskell/path.git
 	branch = master
-[submodule "stack2nix"]
-	path = stack2nix
-	url = https://github.com/4e6/stack2nix.git
+[submodule "stackage2nix"]
+	path = stackage2nix
+	url = https://github.com/4e6/stackage2nix.git
 	branch = master
